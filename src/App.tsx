@@ -2,13 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { Search, User, Briefcase, Mail, Phone, MapPin, Calendar, CreditCard, GraduationCap, Building, FileText, CheckCircle, Clock, Users } from 'lucide-react';
 import { mockEmployees } from './data/mockData';
 import { Employee } from './types';
-import { avatarMap } from './data/avatars';
 
 const getAvatarUrl = (url: string) => {
-  if (avatarMap && avatarMap[url]) return avatarMap[url];
   if (url.startsWith('http')) return url;
   if (url.startsWith('/')) {
-    return `${import.meta.env.BASE_URL}${url.slice(1)}`;
+    return `${(import.meta as any).env.BASE_URL}${url.slice(1)}`;
   }
   return url;
 };
